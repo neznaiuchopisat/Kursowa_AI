@@ -1,1 +1,582 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторско право, етика и генеративен ИИ - Курсова работа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2d5f7e;
+            --accent: #d4a574;
+            --light: #f5f3f0;
+            --text: #2c2c2c;
+            --border: #e8e3dd;
+            --shadow: rgba(26, 58, 82, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header / Title Page */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .university-info {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .university-info p {
+            margin: 6px 0;
+        }
+
+        h1.main-title {
+            font-family: 'Merriweather', serif;
+            font-size: 52px;
+            font-weight: 900;
+            margin: 40px 0;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .work-type {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin: 30px 0;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .author-info {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            font-size: 15px;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .author-info div {
+            text-align: left;
+        }
+
+        .author-info strong {
+            display: block;
+            opacity: 0.8;
+            margin-bottom: 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .abstract {
+            background: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px var(--shadow);
+            border-radius: 2px;
+        }
+
+        .abstract h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .abstract p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        h2:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -20px;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--secondary);
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px var(--shadow);
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+
+        li strong {
+            color: var(--primary);
+        }
+
+        .key-point {
+            background: #f9f7f4;
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 2px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Bibliography */
+        .bibliography {
+            background: white;
+            padding: 40px;
+            margin-top: 50px;
+            border-top: 3px solid var(--primary);
+            border-radius: 2px;
+        }
+
+        .bibliography h2 {
+            border: none;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .bibliography h2:before {
+            display: none;
+        }
+
+        .bib-section {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .bib-section h3 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bib-item {
+            margin: 12px 0;
+            padding-left: 25px;
+            text-indent: -25px;
+            line-height: 1.7;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #f9f7f4;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 2px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .toc ol {
+            margin-left: 25px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+            color: var(--secondary);
+        }
+
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent);
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .conclusion h2 {
+            color: white;
+            border: none;
+            margin-top: 0;
+        }
+
+        .conclusion h2:before {
+            display: none;
+        }
+
+        .conclusion p {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 50px 20px;
+            }
+
+            h1.main-title {
+                font-size: 36px;
+            }
+
+            .author-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .abstract {
+                padding: 20px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .scroll-indicator:hover {
+            background: var(--primary);
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Title Page -->
+    <header class="header">
+        <div class="university-info">
+            <p>Русенски университет „Ангел Кънчев"</p>
+            <p>Факултет: Природни науки и образование</p>
+            <p>Катедра: Информатика и информационни технологии</p>
+        </div>
+
+        <div class="work-type">Курсова работа</div>
+
+        <h1 class="main-title">Авторско право, етика и генеративен ИИ</h1>
+        <p style="font-size: 20px; margin-bottom: 20px;">Изкуственият интелект срещу творците: кой притежава изкуството в дигиталната ера?</p>
+
+        <div class="author-info">
+            <div>
+                <strong>Изготвил</strong>
+                Максим Сибов
+            </div>
+            <div>
+                <strong>Специалност</strong>
+                Софтуерно инженерство
+            </div>
+            <div>
+                <strong>Факултетен №</strong>
+                236292
+            </div>
+            <div>
+                <strong>Курс / Група</strong>
+                3 курс, Група 40Б
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Abstract -->
+        <section class="abstract">
+            <h2>Резюме</h2>
+            <p>Всички вече ползваме инструменти като ChatGPT или Midjourney, но малко от нас се замислят: законно ли е това? Тази статия разглежда как се сблъскват новите технологии със старите правила за авторско право и защо е важно да намерим баланс между прогреса и уважението към човешкия труд.</p>
+        </section>
+
+        <!-- Table of Contents -->
+        <section class="toc">
+            <h3>Съдържание</h3>
+            <ol>
+                <li>Какво казва законът: Само човекът е „автор"</li>
+                <li>Етичният въпрос: Честно ли е обучението на ИИ?</li>
+                <li>Как работи ИИ: Копиране или вдъхновение?</li>
+                <li>Новите правила на играта: Правото да кажеш „Не"</li>
+                <li>Кой носи отговорност, ако нещо се обърка?</li>
+                <li>Заключение: Технологията като инструмент, а не като заместник</li>
+            </ol>
+        </section>
+
+        <!-- Section 1 -->
+        <section class="section" id="section1">
+            <h2>1. Какво казва законът: Само човекът е „автор"</h2>
+            <p>В основата на авторското право стои един прост принцип: защитаваме човека.</p>
+            
+            <h3>Идеите са общи, изразът е личен</h3>
+            <p>Законът не защитава „идеята" да нарисуваш котка в космоса. Той защитава твоята конкретна картина на котка. Това е критично разграничение, което пречи на един всемогъщ контрол над идеите и позволява творческото разнообразие.</p>
+
+            <h3>ИИ не е личност</h3>
+            <p>Според правилата в Европа и света през 2026 г., софтуерът не може да бъде „автор". Ако просто натиснеш един бутон и ИИ генерира нещо, това произведение няма същата законова защита, каквато има картина, рисувана с месеци от човек.</p>
+
+            <div class="key-point">
+                💡 Ключова идея: Авторското право защитава човешкия творчески труд и изразност, не технологичните инструменти.
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section" id="section2">
+            <h2>2. Етичният въпрос: Честно ли е обучението на ИИ?</h2>
+            <p>За да се научи да рисува или пише, изкуственият интелект е „прочел" и „разгледал" милиарди примери в интернет – много от които са създадени от хора, които не са давали съгласието си за това.</p>
+
+            <h3>Проблемът със „суровината"</h3>
+            <p>Представете си, че готвач използва вашите продукти от градината, за да направи ресторант, но не ви плаща нищо и дори не ви казва „благодаря". Това е етичният конфликт в момента. Художниците, писателите и другите творци виждат техните произведения, използвани за обучението на системи, които после конкурират с тях, без никакво признание или компенсация.</p>
+
+            <h3>Прозрачност</h3>
+            <p>Новите закони (като европейския AI Act) вече задължават компаниите да казват какви данни са използвали. Не можеш просто да „крадеш" от интернет и да твърдиш, че всичко е твое. Прозрачността е първата стъпка към справедливост.</p>
+
+            <div class="key-point">
+                ⚖️ Этична дилема: Прогресът в ИИ не трябва да се строи на незаконно ползване на чужди произведения.
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section" id="section3">
+            <h2>3. Как работи ИИ: Копиране или вдъхновение?</h2>
+            <p>Често се бърка, че ИИ просто прави „колаж". Всъщност механизмът е много по-сложен и интересен:</p>
+
+            <h3>Математика, а не рязане с ножица</h3>
+            <p>ИИ не пази снимки в паметта си. Той учи математически модели – например каква е вероятността един пиксел да е червен до друг пиксел. Това е трансформативен процес, който е доста различен от съхранението и копирането на данни.</p>
+
+            <h3>Рискът от „папагалстване"</h3>
+            <p>Понякога обаче ИИ „зазубря" твърде добре някое известно произведение и може почти буквално да го повтори. Тук вече започват истинските правни проблеми и дела за плагиатство. Това е най-сивата зона – кога учението преминава в пряко копиране?</p>
+
+            <div class="key-point">
+                🔬 Научен факт: ИИ модели учат статистически закономерности, но това не исключва възможността за нежелано съхранение и възпроизвеждане на защитени произведения.
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section" id="section4">
+            <h2>4. Новите правила на играта: Правото да кажеш „Не"</h2>
+            <p>През 2025–2026 г. се наложиха няколко важни механизма за защита на обикновените творци:</p>
+
+            <h3>Бутонът „Отказ" (Opt-out)</h3>
+            <p>Авторите вече имат право изрично да забранят техните произведения да се ползват за обучение на ИИ. Това е значителен напредък – от позиция, където трябваше да се бориш за своето право, преминаваш към позиция, където можеш да го защитиш активно.</p>
+
+            <h3>Етичното обучение</h3>
+            <p>Компании като Adobe създадоха модели, които се учат само от картинки, за които са платили или които са в публичното пространство. Това е „чистият" път напред. Показва, че технологичният прогрес и етиката не са взаимно изключващи се.</p>
+
+            <div class="key-point">
+                ✓ Решение: Механизмите за отказ и етичното обучение показват пътя към по-справедливото използване на ИИ.
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section" id="section5">
+            <h2>5. Кой носи отговорност, ако нещо се обърка?</h2>
+            <p>Ако генерирате изображение, което прилича твърде много на Мики Маус или на логото на известна марка, кой е виновен?</p>
+
+            <h3>Споделена отговорност</h3>
+            <p>Вината често се споделя между човека, който е дал командата (промпта), и компанията, която създала ИИ. Това е сложна правна領域, където все още се развиват прецеденти и юриспруденция.</p>
+
+            <h3>Имитация на стил</h3>
+            <p>Тук е най-трудно. Законът не забранява да рисуваш „като Пикасо", но ако ИИ залее пазара с милиони картинки в стила на жив съвременен художник, това може да съсипе кариерата му. Етиката тук казва, че това е нелоялна конкуренция. Трябва да намерим баланс между правото на трансформативна употреба и защитата на съществуващите творци.</p>
+
+            <div class="key-point">
+                ⚠️ Предизвикателство: Отговорността при ИИ използване остава неясна и се развива в реално време чрез съдебни дела и законодателство.
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="conclusion">
+            <h2>Заключение</h2>
+            <h3 style="color: var(--accent); margin-top: 20px; font-size: 18px;">Технологията като инструмент, а не като заместник</h3>
+            <p style="margin-top: 20px;">Изкуственият интелект е като нов вид „четка" или „пишеща машина". Той може да ни помага да бъдем по-креативни, но не трябва да изтрива човека от уравнението.</p>
+            
+            <p style="margin-top: 15px;">Бъдещето е в <strong>прозрачността</strong>: да знаем кога нещо е направено от машина и да сме сигурни, че хората, чийто труд е помогнал на тази машина да се научи, са били третирани с уважение.</p>
+
+            <p style="margin-top: 20px; font-style: italic; opacity: 0.95;">Изборът на баланс между иновацията и справедливостта е не само технически проблем, но и моралният тест за нашето време.</p>
+        </section>
+
+        <!-- Bibliography -->
+        <section class="bibliography" id="bibliography">
+            <h2>Списък на използваните източници</h2>
+
+            <div class="bib-section">
+                <h3>I. Нормативни актове и официални документи на ЕС и САЩ</h3>
+                <div class="bib-item">1. Регламент (ЕС) 2024/1689 на Европейския парламент и на Съвета от 13 юни 2024 година за определяне на хармонизирани правила относно изкуствения интелект (Artificial Intelligence Act).</div>
+                <div class="bib-item">2. Директива (ЕС) 2019/790 относно авторското право и сродните му права в цифровия единен пазар (относно TDM и чл. 4 за правото на „Opt-out").</div>
+                <div class="bib-item">3. European Commission (2025). Study on Copyright and New Technologies: Generative AI and the Creative Sector. Publications Office of the European Union.</div>
+                <div class="bib-item">4. U.S. Copyright Office (USCO). Решения и насоки относно регистрацията на произведения, съдържащи материали, генерирани от ИИ (във връзка с казусите за „човешко авторство").</div>
+                <div class="bib-item">5. Congressional Research Service (CRS). Generative AI and Copyright Law (LSB10922). Доклад за Конгреса на САЩ.</div>
+            </div>
+
+            <div class="bib-section">
+                <h3>II. Научни публикации и анализи (2025–2026)</h3>
+                <div class="bib-item">6. Stober, S., & Dornis, T. W. (2025). Generative AI Training and Copyright Law. arXiv:2502.15858 (Изследване върху механизмите на запаметяване и трансформативността).</div>
+                <div class="bib-item">7. Harkins, L. (2025). Artificial Intelligence and the Concept of Substantial Similarity in Copyright Law. Intellectual Property Journal, 37(1).</div>
+                <div class="bib-item">8. Dusollier, S., et al. (2025). Copyright and Generative AI: Opinion of the European Copyright Society. JIPITEC 121.</div>
+                <div class="bib-item">9. European Parliament (2025). Think Tank: Artificial Intelligence and Intellectual Property Rights. Доклад IUST_STU(2025)774095.</div>
+            </div>
+
+            <div class="bib-section">
+                <h3>III. Корпоративни политики и етични рамки</h3>
+                <div class="bib-item">10. Adobe AI Ethics. Overview of Ethical Principles and Training Practices. [Adobe.com/bg/ai/overview/ethics.html].</div>
+                <div class="bib-item">11. Copyright Alliance. Generative AI Ethical Training Practices. [copyrightalliance.org].</div>
+            </div>
+
+            <div class="bib-section">
+                <h3>IV. Публицистика и специализирани издания</h3>
+                <div class="bib-item">12. Manager.bg (2026). Битките между авторските права и изкуствения интелект навлизат в ключова година.</div>
+                <div class="bib-item">13. LinkedIn Insight. Ethics of Generative AI: Copyright, Ownership and Authenticity.</div>
+                <div class="bib-item">14. BusinessThink (UNSW). Generative AI in Creative Industries: Copyright and Fair Use.</div>
+                <div class="bib-item">15. IPCMagazine. Правовые аспекты использования генеративного ИИ в творчестве.</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Курсова работа по „Изкуствен интелект" | Максим Сибов</p>
+    </footer>
+</body>
+</html>
